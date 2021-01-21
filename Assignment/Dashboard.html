@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body style="background-color: white;" onload="BindTodo()">
+
+    
+  <ul style="height: 47px;">
+    <li><h3 style="color: white;margin-left: 27px;margin-top: 12px">Website Name</h3></li>
+    <li style="float: right;"><a href="#" onclick="logout()">Logout</a></li>
+    <li style="float: right;"><a href="MyProfile.html">My Profile</a></li>
+    <li style="float: right;"><a href="Dashboard.html">Dashboard</a></li>
+   
+  </ul>
+
+
+  <p style="margin-left: 41%;"><b>Welcome to Dashboard!!</b></p>
+
+  <div style="margin-left: 25%">
+
+  <label for="todo"><b>To Do </b></label> &nbsp;&nbsp;
+  <input type="text" placeholder="Enter To Do Item" name="todo" id="txtTodo" onkeyup="clearTodoMsg()" required 
+  style="width: 30%;">
+
+  <label for="category"><b>Category</b></label>
+  <input type="radio" name="category" id="rbPersonal" value="personal" style="margin-left: 5%;"> <label for="Personal" >Personal</label> 
+
+  <input type="radio" id="rbOffical" name="category" value="Offical"><label for="Offical" >Offical</label> 
+  
+  <br>
+
+  <label for="status"><b>Status</b></label>
+  <input type="radio" name="status" id="rbPending" value="Pending" style="margin-left: 5%;"> <label for="Pending" >Pending</label> 
+
+  <input type="radio" id="rbDone" name="status" value="Done"><label for="Done" >Done</label> 
+&nbsp;&nbsp;
+
+<label for="date" style="margin-left: 10%;"><b>Date</b></label>
+<input type="date" id="txtDate">
+
+
+ <br><br> <br>
+
+  <input type="hidden" id ="editIndex">
+
+  <button type="submit" id="btnAddtodo" class="registerbtn" style="width: 98px;margin-left: 16%" onclick="ToDoFunc('add')" >Add</button>
+
+  <button type="submit" id="btnEdittodo" class="registerbtn" style="width: 98px;margin-left: 16%;display: none;" onclick="ToDoFunc('edit')" >Update</button>
+
+  <button type="submit" id="btnCleartodo" class="registerbtn" onclick="ClearToDO()" style="width: 98px;" >Clear</button>
+
+  &nbsp;<span style="color: red;" id="spTodo"></span>
+
+</div>
+
+<hr>
+
+  <!-- <p style="margin-left: 14%;">Todo Table</p> -->
+
+  <p>
+    <input type="text" id="txtSearch" style="width: 20%;margin-left: 20%;margin-top: -4%;" onkeyup="SearchFun()" placeholder="Search for all columns..">
+
+    <select onchange="BindTodo()" id="select_cat" style="margin-left: 2%;width: 10%;padding: 0.5%;">
+      <option>Select Category</option>
+      <option>Personal</option>
+      <option>Offical</option>
+    </select>
+
+    <select onchange="BindTodo()" id="select_status" style="margin-left: 2%;width: 10%;padding: 0.5%;">
+      <option>Select Status</option>
+      <option>Done</option>
+      <option>Pending</option>
+    </select>
+
+    <button type="submit" id="btnCleartodoFilter" class="registerbtn"  onclick="CleartodoFilter()" style="width: 119px;margin-left: 1%;" >Clear Filter</button>
+
+  </p>
+
+  <table id="todotable" style="margin-left: 20%;width: 56%;margin-top: -2%;">
+    
+  </table>
+  <br>
+  
+
+</body>
+<script src='index.js'></script>
+</html>
